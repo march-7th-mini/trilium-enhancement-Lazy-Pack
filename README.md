@@ -125,13 +125,47 @@ VOCALOID歌姬应援色主题CSS文件中附有详细的注释，方便您进行
 
 Alt+q 是切换chat - UI 的默认快捷键，或者您可以单击右上角的聊天图标进行切换。
 
+导入后特别注意检查属性设置是否带有#run=frontendStartup ，否则不会每次启动都会调用AI机器人
 
-注意：开始使用前，您需要在选项注释中配置您的 ChatGPT API 密钥并重新加载，或者配置使用自己本地托管的 Ollama。。
+另外注意：开始使用前，您需要在选项注释中配置您的 ChatGPT API 密钥并重新加载，或者配置使用自己本地托管的 Ollama。
+
+其实经过与AI问答，测试模型可以替换为其他的，例如Kimi等，不过需要注意的有一点：模型的名称不能变，否则无法调出对话页面。
+
+参考修改示例如下：
+```
+const u = {
+  viewWidth: 400,
+  engine: "ChatGpt", // ⚠️ 保持不变，不要改
+  apiKey: "sk-your-kimi-key-here", // 替换为你的 Kimi API Key
+  requestUrls: {
+    completion: "https://api.moonshot.cn/v1/chat/completions" // ✅ 指向 Kimi
+  },
+  engineOptions: {
+    model: "moonshot-v1-8k", // ✅ 使用 Kimi 模型
+    max_tokens: 2500,
+    temperature: 0.3,
+    top_p: 1,
+    presence_penalty: 0.5,
+    frequency_penalty: 0.5,
+    stream: true,
+    n: 1
+  },
+  shortcut: {
+    toggle: "Alt+Q",
+    hide: "Esc"
+  },
+  systemPrompt: "",
+  checkUpdates: true,
+  autoSave: true
+};
+```
 
 
  
 
 ### 2.12  trilium-simple-mind-map| 思维导图  （使用的是V1.2.0版本，最新的1.3版本超链接笔记在Trilium Notes v0.63.7上可能有问题）
+
+安装后，后台会有一些报错，但似乎不影响使用。
 
 在插入子笔记的菜单中可以看到simple-mind-map选项
 
