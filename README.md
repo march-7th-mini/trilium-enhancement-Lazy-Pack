@@ -183,4 +183,6 @@ GOTO END
 
 ### 3.2  常用Markdown格式：
 详见附件
- 
+
+
+感谢 zadam大佬 开发开源 Trilium ，感谢Nriver大佬的汉化，感谢各位大佬的插件开发和优化。
